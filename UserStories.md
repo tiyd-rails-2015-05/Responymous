@@ -12,7 +12,10 @@
 #### Student Users
 
 ##### I can rate my understanding of a given lecture topic so that my teacher knows where the class is tracking.
-* Student must supply an OAuth token to identify himself/herself
+* Student should load Chrome extension.
+* Student must supply an OAuth token to identify himself/herself on Chrome extension.
+* Student should click Chrome extension button to fire voting page in the browser.
+* Browser should check if student is logged in before firing an event and prompt student to login if applicable.
 * UI must include display of question and response scale of 1 to 5. 
 * Student must click on or touch answer depending on viewport.
 * Student responses should be added to Firebase.
