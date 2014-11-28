@@ -2,9 +2,9 @@
 
 ##### I can poll the class so that I can gauge their level of understanding.
 * Should see real-time graphic display of vote totals on web page via stacked progress bar of red-yellow-green. (3 points)
-* Should be able to see total unique votes.(4 points) 
-* Should be able to see list of student voters.(2 points) 
-* Instructor must supply OAuth token to identify himself/herself.(3 points)
+* Should be able to see total unique votes. (4 points) 
+* Should be able to see list of student voters. (2 points) 
+* Instructor must supply OAuth token to identify himself/herself. (3 points)
 
 #### Student Users
 
