@@ -12,11 +12,11 @@
 .thumbnail img.pull-right {
   width: 50px;
 }
-
-
-
 body {
   background-color: #39474E;
+
+
+/* === student UI === */
 }
 h2 {
   color: #ffffff;
@@ -31,19 +31,18 @@ h2 {
   margin-left: auto;
   width: 90%;
 }
-
 .btn{
   line-height: 7ex;
   text-align: left;
   font-size: 1.2em;
 }
-
-
 .container{
   margin-top: 4ex;
   margin-bottom: 4ex;
   padding-bottom: 4ex;
   border: 4px solid #A5A2A1;
   border-radius: 25px;
-
+}
+.container.submit{
+  opacity: 0.3
 }
