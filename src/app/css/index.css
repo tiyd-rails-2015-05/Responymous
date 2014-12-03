@@ -20,7 +20,8 @@ body {
 }
 h2 {
   color: #ffffff;
-  display: inline;
+  text-align: center;
+  padding-bottom: 1ex;
 }
 .btn-group-vertical{
   display: block;
@@ -37,6 +38,12 @@ h2 {
   font-size: 1.2em;
 }
 
-.col-md-12, .col-sm-12, .col-xs-12 {
-  text-align: center;
+
+.container{
+  margin-top: 4ex;
+  margin-bottom: 4ex;
+  padding-bottom: 4ex;
+  border: 4px solid #A5A2A1;
+  border-radius: 25px;
+
 }
