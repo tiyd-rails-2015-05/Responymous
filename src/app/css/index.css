@@ -12,3 +12,20 @@
 .thumbnail img.pull-right {
   width: 50px;
 }
+
+
+
+body {
+  background-color: #39474E;
+}
+h2 {
+  color: #ffffff;
+  display: inline;
+}
+.btn-group-vertical{
+  display: block;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+  margin-right: auto;
+  margin-left: auto;
+}
