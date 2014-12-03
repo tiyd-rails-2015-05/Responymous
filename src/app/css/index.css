@@ -28,4 +28,11 @@ h2 {
   margin-bottom: 0.5em;
   margin-right: auto;
   margin-left: auto;
+  width: 90%;
+}
+
+.btn{
+  line-height: 7ex;
+  text-align: left;
+  font-size: 1.2em;
 }
