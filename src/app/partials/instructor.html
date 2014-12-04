@@ -1,1 +1,12 @@
-Instructor progress bar goes HERE!
+<br/><br/>
+<div class="container" ng-controller="ResponseCtrl as response">
+  <div class="progress">
+    <div class="progress-bar progress-bar-danger" style="width: {{ response.red }}%"></div>
+    <div class="progress-bar progress-bar-warning" style="width: {{ response.yellow }}%"></div>
+    <div class="progress-bar progress-bar-success" style="width: {{ response.green }}%"></div>
+  </div>
+  <br/><br/>
+  R: {{ response.red }}%
+  Y: {{ response.yellow }}%
+  G: {{ response.green }}%
+</div>
