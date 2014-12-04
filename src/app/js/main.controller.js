@@ -3,4 +3,5 @@
 angular.module('responymous')
   .controller('MainCtrl', function() {
 
-  });
+ })
+;
