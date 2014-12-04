@@ -35,11 +35,12 @@
 
     //disables button functionality for a period of time
     $button.disabled = true;
+    console.log('disabled');
     setTimeout(function(){
       $button.disabled = false;
-      // alert('yes');
       $button.toggleClass('submit');
-      $('h1').toggleClass('display-h1')
+      $('h1').toggleClass('display-h1');
+      console.log('enabled');
     }, 3000);
 
     });
