@@ -40,6 +40,10 @@ h2 {
   line-height: 7ex;
   text-align: left;
   font-size: 1.2em;
+  white-space: normal;
+  padding-top: 3ex;
+  padding-bottom: 3ex;
+  line-height: 3ex;
 }
 .container{
   margin-top: 4ex;
