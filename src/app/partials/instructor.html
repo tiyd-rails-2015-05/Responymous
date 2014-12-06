@@ -1,5 +1,13 @@
 <br/><br/>
+
 <div class="container" ng-controller="ResponseCtrl as response">
+  <div class="row" style="display:inline;">
+    <button type="button" class="btn btn-danger" ng-click="response.addVote(1)">1</button>
+    <button type="button" class="btn btn-danger" ng-click="response.addVote(2)">2</button>
+    <button type="button" class="btn btn-warning" ng-click="response.addVote(3)">3</button>
+    <button type="button" class="btn btn-success" ng-click="response.addVote(4)">4</button>
+    <button type="button" class="btn btn-success" ng-click="response.addVote(5)">5</button>
+  </div>
   <div class="progress">
     <div class="progress-bar progress-bar-danger" style="width: {{ response.red }}%"></div>
     <div class="progress-bar progress-bar-warning" style="width: {{ response.yellow }}%"></div>

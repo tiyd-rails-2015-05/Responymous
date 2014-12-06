@@ -20,4 +20,9 @@ angular.module('responymous', ['ngAnimate', 'ngCookies', 'ngTouch', 'ui.router',
 
     $urlRouterProvider.otherwise('/');
   })
+  .constant('CONFIG', {
+    Firebase: {
+      baseUrl: 'https://responymousdevdb.firebaseio.com'
+    }
+  })
 ;
