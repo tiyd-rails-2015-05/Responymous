@@ -2,6 +2,28 @@
 
 angular.module('responymous')
  .controller('StudentCtrl', function(CONFIG) {
+
+   var $button = $('.btn');
+
+   $button.click(function(){
+
+     //fades out the buttons (visual cue buttons are disabled)
+     $button.toggleClass('submit');
+
+     //brings up "alert" message, more confirmation disabled buttons
+     $('h1').toggleClass('display-h1')
+
+     //disables button functionality for a period of time
+     $button.disabled = true;
+     console.log('disabled');
+     setTimeout(function(){
+       $button.disabled = false;
+       $button.toggleClass('submit');
+       $('h1').toggleClass('display-h1');
+       console.log('enabled');
+     }, 3000);
+   });
+
   var ref = new Firebase(CONFIG.Firebase.baseUrl);
   var self = this;
 
