@@ -10,14 +10,15 @@ angular.module('responymous', ['ngAnimate', 'ngCookies', 'ngTouch', 'ui.router',
     })
     .state('student', {
       url: '/student',
-      templateUrl: 'app/partials/student.html'
+      templateUrl: 'app/partials/student.html',
+      controller: 'StudentCtrl'
     })
     .state('instructor', {
       url: '/instructor',
       templateUrl: 'app/partials/instructor.html',
       controller: 'ResponseCtrl'
     });
-    
+
     $urlRouterProvider.otherwise('/');
   })
   .constant('CONFIG', {
