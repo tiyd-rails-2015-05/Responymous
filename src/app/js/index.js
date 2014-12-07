@@ -17,7 +17,6 @@ angular.module('responymous', ['ngAnimate', 'ngCookies', 'ngTouch', 'ui.router',
         templateUrl: 'app/partials/instructor.html',
         controller: 'ResponseCtrl'
       });
-
     $urlRouterProvider.otherwise('/');
   })
   .constant('CONFIG', {
