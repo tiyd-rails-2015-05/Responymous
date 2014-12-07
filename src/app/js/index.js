@@ -12,13 +12,18 @@ angular.module('responymous', ['ngAnimate', 'ngCookies', 'ngTouch', 'ui.router',
       url: '/student',
       templateUrl: 'app/partials/student.html'
     })
+    .state('invite', {
+      url: '/invite/student/to/join?class',
+      templateUrl: 'app/partials/invite.html',
+      controller: 'InviteCtrl'
+    })
     .state('instructor', {
       url: '/instructor',
       templateUrl: 'app/partials/instructor.html',
       controller: 'ResponseCtrl'
     });
-    
-    $urlRouterProvider.otherwise('/');
+
+    $urlRouterProvider.otherwise('/invite');
   })
   .constant('CONFIG', {
     Firebase: {
