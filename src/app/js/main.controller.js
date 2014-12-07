@@ -22,7 +22,7 @@ angular.module('responymous')
       * correct provider code.
       */
       login: function(){
-        return auth.$authWithOAuthPopup('github');
+        return auth.$authWithOAuthRedirect('github');
       },
       /**
       * Wrapper for `$firebaseAuth.$unauth()`
@@ -56,7 +56,7 @@ angular.module('responymous')
         current_class: "Q42014FEEORL",
         role: "student"
       });
-  
+
       user.$save();
 
       return user;
