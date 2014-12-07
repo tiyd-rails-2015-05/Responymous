@@ -77,11 +77,9 @@ angular.module('responymous')
             percent: ((green/total)*100).toFixed(2) +'%' }
         ]
 
-        console.log(progress);
-
-        $('#red').width(progress[0].percent);
-        $('#yellow').width(progress[1].percent);
-        $('#green').width(progress[2].percent);
+        $('#red').width(progress[0].percent).children('div').text(progress[0].count);
+        $('#yellow').width(progress[1].percent).children('div').text(progress[1].count);
+        $('#green').width(progress[2].percent).children('div').text(progress[2].count);
 
       });
    }

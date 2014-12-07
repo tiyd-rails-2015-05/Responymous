@@ -9,8 +9,14 @@
     <button type="button" class="btn btn-success" ng-click="response.addVote(5)">5</button>
   </div>
   <div class="progress">
-    <div id="red" class="progress-bar progress-bar-danger"></div>
-    <div id="yellow" class="progress-bar progress-bar-warning"></div>
-    <div id="green" class="progress-bar progress-bar-success"></div>
+    <div id="red" class="progress-bar progress-bar-danger" style="height:100px;">
+      <div title="danger" class="bar" id="prgwidth" style="height:100px;"></div>
+    </div>
+    <div id="yellow" class="progress-bar progress-bar-warning" style="height:100px;">
+      <div title="warning" class="bar" id="prgwidth" style="height:100px;"></div>
+    </div>
+    <div id="green" class="progress-bar progress-bar-success" style="height:100px;">
+      <div title="success" class="bar" id="prgwidth" style="height:100px;"></div>
+    </div>
   </div>
 </div>
