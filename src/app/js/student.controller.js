@@ -1,5 +1,7 @@
+'use strict';
+
 angular.module('responymous')
-.controller('StudentCtrl', function( CONFIG) {
+ .controller('StudentCtrl', function(CONFIG) {
   var ref = new Firebase(CONFIG.Firebase.baseUrl);
   var self = this;
 
@@ -44,9 +46,10 @@ angular.module('responymous')
 
         //Updates user last vote
         user_LastVote.set(selection);
-      })
+      });
     }, function (errorObject) {
       console.log("The read failed: " + errorObject.code);
     });
-  }
+  };
+})
 ;
