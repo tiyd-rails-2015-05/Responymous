@@ -27,8 +27,17 @@ body {
 #login .btn{
   line-height: 5ex;
   font-size: 2ex;
+  text-align: left;
 }
-
+#login img{
+  vertical-align: middle;
+  margin-right: 1.8em;
+  width: 13%;
+}
+#login .btn-danger{
+    font-size: 3ex;
+    text-align: center;
+}
 .container .jumbotron {
   width: 26.5em;
   border: 5px solid #A5A2A1;
