@@ -17,8 +17,24 @@ body {
 }
 
 /* === login UI === */
+#login {
+  width: 30em;
+  margin-top: 5ex;
+}
+#login h1 {
+  color: #fff;
+}
+#login .btn{
+  line-height: 5ex;
+  font-size: 2ex;
+}
+
 .container .jumbotron {
-  /*background-color: inherit;*/
+  width: 26.5em;
+  border: 5px solid #A5A2A1;
+  border-radius: 25px;
+  padding: 2ex 1em 6ex 1em;
+  background-color: inherit;
 }
 
 
