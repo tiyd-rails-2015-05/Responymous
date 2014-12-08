@@ -8,6 +8,8 @@ angular.module('responymous')
   var ref = new Firebase(CONFIG.Firebase.baseUrl);
   var self = this;
 
+  this.isDisabled = true;
+
   this.addVote=function(selection){
 
     //Get current date
@@ -53,6 +55,10 @@ angular.module('responymous')
     }, function (errorObject) {
       console.log("The read failed: " + errorObject.code);
     });
+
+
+
+
   };
 })
 ;

@@ -3,7 +3,7 @@
   <div class="container" ng-controller="StudentCtrl as student">
     <h2 class="col-md-12 col-sm-12 col-xs-12">How are you tracking?</h2>
     <div class="btn-group-vertical" role="group">
-      <button type="button" class="btn btn-default" ng-click="student.addVote(5)">5 - I am pwning these concepts</button>
+      <button type="button" class="btn btn-default" ng-click="student.addVote(5)" ng-disabled="student.isDisabled">5 - I am pwning these concepts</button>
     </div>
     <div class="btn-group-vertical" role="group">
       <button type="button" class="btn btn-default" ng-click="student.addVote(4)">4 - Doing aight. I think I have a question or two</button>
@@ -25,24 +25,24 @@
 
   var $button = $('.btn');
 
-  $button.click(function(){
-
-    //fades out the buttons (visual cue buttons are disabled)
-    //$button.toggleClass('submit');
-
-    //brings up "alert" message, more confirmation disabled buttons
-    //$('h1').toggleClass('display-h1')
-
-    //disables button functionality for a period of time
-    $button.disabled = true;
-    console.log('disabled');
-    setTimeout(function(){
-      // $button.disabled = false;
-      // $button.toggleClass('submit');
-      // $('h1').toggleClass('display-h1');
-    console.log('enabled');
-      }, 3000);
-    });
+  // $button.click(function(){
+  //
+  //   //fades out the buttons (visual cue buttons are disabled)
+  //   //$button.toggleClass('submit');
+  //
+  //   //brings up "alert" message, more confirmation disabled buttons
+  //   //$('h1').toggleClass('display-h1')
+  //
+  //   //disables button functionality for a period of time
+  //   $button.disabled = true;
+  //   console.log('disabled');
+  //   setTimeout(function(){
+  //     $button.disabled = false;
+  //     // $button.toggleClass('submit');
+  //     // $('h1').toggleClass('display-h1');
+  //   console.log('enabled');
+  //     }, 3000);
+  //   });
 
 
 
