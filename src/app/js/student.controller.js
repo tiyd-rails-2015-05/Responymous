@@ -60,7 +60,7 @@ angular.module('responymous')
 
     $timeout(function(){
       self.isDisabled=false;
-    }, 2000);
+    }, 3000);
 
 
   };
