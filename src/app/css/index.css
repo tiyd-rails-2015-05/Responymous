@@ -23,18 +23,19 @@ body {
 
 
 /* === student UI === */
-h1 {
-  display: none;
-  color: #fff;
-  text-align: center;
-  opacity: 1;
+#student{
+  margin-top: 4ex;
+  margin-bottom: 4ex;
+  padding-bottom: 4ex;
+  border: 4px solid #A5A2A1;
+  border-radius: 25px;
 }
-h2 {
+#student h2 {
   color: #ffffff;
   text-align: center;
   padding-bottom: 1ex;
 }
-.btn-group-vertical{
+#student .btn-group-vertical{
   display: block;
   margin-top: 0.5em;
   margin-bottom: 0.5em;
@@ -42,7 +43,7 @@ h2 {
   margin-left: auto;
   width: 90%;
 }
-.btn{
+#student .btn{
   line-height: 7ex;
   text-align: left;
   font-size: 1.2em;
@@ -51,12 +52,11 @@ h2 {
   padding-bottom: 3ex;
   line-height: 3ex;
 }
-#student{
-  margin-top: 4ex;
-  margin-bottom: 4ex;
-  padding-bottom: 4ex;
-  border: 4px solid #A5A2A1;
-  border-radius: 25px;
+#student h1 {
+  display: none;
+  color: #fff;
+  text-align: center;
+  opacity: 1;
 }
 .submit{
   opacity: 0.3
