@@ -16,6 +16,12 @@ body {
   background-color: #39474E;
 }
 
+/* === login UI === */
+.container .jumbotron {
+  /*background-color: inherit;*/
+}
+
+
 /* === student UI === */
 h1 {
   display: none;
@@ -45,7 +51,7 @@ h2 {
   padding-bottom: 3ex;
   line-height: 3ex;
 }
-.container{
+#student{
   margin-top: 4ex;
   margin-bottom: 4ex;
   padding-bottom: 4ex;
