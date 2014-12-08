@@ -53,8 +53,9 @@ angular.module('responymous')
         access_token: authdUser.github.accessToken,
         email: authdUser.github.email,
         name: authdUser.github.displayName,
+        last_vote: 5,
         current_class: "Q42014FEEORL",
-        role: "student"
+        student: true
       });
 
       user.$save();
