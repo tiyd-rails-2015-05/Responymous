@@ -2,15 +2,38 @@ angular.module('responymous')
   .controller('ResponseCtrl', function( CONFIG) {
     var ref = new Firebase(CONFIG.Firebase.baseUrl);
     var self = this;
+    // *** Get these values dynamically ***
+    var userID = "8822941";
+    var classID = "Q42014FEEORL";
+
+    this.reset=function(){
+
+      var class_Size = ref.child("classes/"+classID+"/size");
+      var class_VoteTotals = ref.child("classes/"+classID+"/vote_totals");
+      class_VoteTotals.child("1").transaction(function(){
+        return 0;
+      });
+      class_VoteTotals.child("2").transaction(function(){
+        return 0;
+      });
+      class_VoteTotals.child("3").transaction(function(){
+        return 0;
+      });
+      class_VoteTotals.child("4").transaction(function(){
+        return 0;
+      });
+      class_Size.once("value", function(snap_size){
+        class_VoteTotals.child("5").transaction(function(){
+          return snap_size.val();
+        });
+      });
+      
+    }
 
     this.addVote=function(selection){
 
       //Get current date
       var currDate = (new Date()).toISOString().slice(0,10).replace(/-/g,"");
-
-      // *** Get these values dynamically ***
-      var userID = "8822941";
-      var classID = "Q42014FEEORL";
 
       //Record vote in Firebase
       ref.child("votes").push({
