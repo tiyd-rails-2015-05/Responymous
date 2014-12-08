@@ -1,23 +1,15 @@
 <br/><br/>
 
 <div class="container" ng-controller="ResponseCtrl as response">
-  <div class="row" style="display:inline;">
-    <button type="button" class="btn btn-danger" ng-click="response.addVote(1)">1</button>
-    <button type="button" class="btn btn-danger" ng-click="response.addVote(2)">2</button>
-    <button type="button" class="btn btn-warning" ng-click="response.addVote(3)">3</button>
-    <button type="button" class="btn btn-success" ng-click="response.addVote(4)">4</button>
-    <button type="button" class="btn btn-success" ng-click="response.addVote(5)">5</button>
-  </div>
   <div class="progress">
-    <div id="red" class="progress-bar progress-bar-danger" style="height:100px;">
-      <div title="danger" class="bar" id="prgwidth" style="height:100px;"></div>
+    <div id="red" class="progress-bar progress-bar-danger">
+      <div title="danger" class="bar" id="prgwidth"></div>
     </div>
     <div id="yellow" class="progress-bar progress-bar-warning" style="height:100px;">
-      <div title="warning" class="bar" id="prgwidth" style="height:100px;"></div>
+      <div title="warning" class="bar" id="prgwidth"></div>
     </div>
-    <div id="green" class="progress-bar progress-bar-success" style="height:100px;">
-      <div title="success" class="bar" id="prgwidth" style="height:100px;"></div>
+    <div id="green" class="progress-bar progress-bar-success">
+      <div title="success" class="bar" id="prgwidth"></div>
     </div>
   </div>
-  <button type="button" class="btn btn-primary" ng-click="response.reset()">Reset</button>
 </div>

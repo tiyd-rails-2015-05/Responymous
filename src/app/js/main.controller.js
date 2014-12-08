@@ -22,7 +22,7 @@ angular.module('responymous')
       * correct provider code.
       */
       login: function(){
-        return auth.$authWithOAuthPopup('github');
+        return auth.$authWithOAuthRedirect('github');
       },
       /**
       * Wrapper for `$firebaseAuth.$unauth()`
@@ -45,7 +45,7 @@ angular.module('responymous')
       }
 
       var user = $firebase(Firebase
-        .child('Users')
+        .child('users')
         .child( authdUser.github.id )
       ).$asObject();
 
@@ -53,8 +53,9 @@ angular.module('responymous')
         access_token: authdUser.github.accessToken,
         email: authdUser.github.email,
         name: authdUser.github.displayName,
+        last_vote: 5,
         current_class: "Q42014FEEORL",
-        role: "student"
+        student: true
       });
 
       user.$save();
