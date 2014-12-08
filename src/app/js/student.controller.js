@@ -1,16 +1,18 @@
 'use strict';
 
 angular.module('responymous')
- .controller('StudentCtrl', function(CONFIG) {
+ .controller('StudentCtrl', function(CONFIG, $timeout) {
 
 
 
   var ref = new Firebase(CONFIG.Firebase.baseUrl);
   var self = this;
 
-  this.isDisabled = true;
+  this.isDisabled = false;
 
   this.addVote=function(selection){
+
+    this.isDisabled = true;
 
     //Get current date
     var currDate = (new Date()).toISOString().slice(0,10).replace(/-/g,"");
@@ -56,7 +58,9 @@ angular.module('responymous')
       console.log("The read failed: " + errorObject.code);
     });
 
-
+    $timeout(function(){
+      self.isDisabled=false;
+    }, 2000);
 
 
   };
