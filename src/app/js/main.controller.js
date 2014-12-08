@@ -45,7 +45,7 @@ angular.module('responymous')
       }
 
       var user = $firebase(Firebase
-        .child('Users')
+        .child('users')
         .child( authdUser.github.id )
       ).$asObject();
 
