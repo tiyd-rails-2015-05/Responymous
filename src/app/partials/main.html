@@ -2,17 +2,18 @@
   <div class="jumbotron text-center">
     <div ng-hide="app.user">
       <h1> Please login to continue: </h1>
+      <img src="images/GitHub-Mark-Light-64px.png">
       <br>
       <p>
         <button class="btn btn-lg btn-primary btn-block" ng-click="app.login()">
-          <img src="Users/suavestefano/repos/responymous/src/app/images/GitHub-Mark-Light-64px.png">Login with GitHub
+          Login with GitHub
         </button>
       </p>
     </div>
     <div ng-show="app.user">
       <h1> Hello, {{app.user.name}}! </h1>
 
-      <button class="btn btn-danger" ng-click="app.logout()">
+      <button class="btn btn-danger btn-block" ng-click="app.logout()">
         Logout
       </button>
     </div>
