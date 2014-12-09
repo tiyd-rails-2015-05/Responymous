@@ -84,7 +84,7 @@ body {
   margin-top: -8ex;
 }
 #student>h1 {
-  display: none;
+  /*display: none;*/
   color: #fff;
   text-align: center;
   opacity: 1;
