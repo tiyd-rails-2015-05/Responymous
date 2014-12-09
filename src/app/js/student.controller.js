@@ -1,10 +1,16 @@
 'use strict';
 
 angular.module('responymous')
- .controller('StudentCtrl', function(Firebase, $timeout, $firebase) {
+ .controller('StudentCtrl', function(Auth, Firebase, $timeout, $firebase) {
 
   var self = this;
+  var userID, classID;
 
+  Auth.onAuth(function(user){
+    userID = user.$id;
+    classID = user.current_class;
+  });
+  
   this.isDisabled = false;
 
   this.addVote=function(selection){
@@ -13,10 +19,6 @@ angular.module('responymous')
 
     //Get current date
     var currDate = (new Date()).toISOString().slice(0,10).replace(/-/g,"");
-
-    // *** Need to get these values dynamically ***
-    var userID = "8822941";
-    var classID = "Q42014FEEORL";
 
     var vote = $firebase(Firebase
       .child('votes')
@@ -29,18 +31,14 @@ angular.module('responymous')
       student_id: userID
     });
 
-    var user = $firebase(Firebase
-      .child('users').child(userID)
+    var classUser = $firebase(Firebase
+      .child('classUsers').child(classID).child(userID)
     ).$asObject();
 
-    user.$loaded().then(function(){
-      user.last_vote = selection;
-      user.$save();
+    classUser.$loaded().then(function(){
+      classUser.current_vote = selection;
+      classUser.$save();
     });
-
-    var user2 = $firebase(Firebase
-      .child('users')
-    ).$asObject();
 
     $timeout(function(){
       self.isDisabled=false;
