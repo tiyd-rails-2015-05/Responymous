@@ -16,11 +16,9 @@
     </div>
     <div class="btn-group-vertical" role="group">
       <button type="button" class="btn btn-default" ng-click="student.addVote(1)" ng-disabled="student.isDisabled">1 - Totally lost. Halp. </button>
-
+    </div>
     <h1 class="col-md-12 col-sm-12 col-xs-12">Thanks for your input!</h1>
-
   </div>
-
 <script type="text/javascript">
 
   var $button = $('.btn');
@@ -31,12 +29,12 @@
     $button.toggleClass('submit');
 
     //brings up "alert" message, more confirmation disabled buttons
-    $('h1').toggleClass('display-h1')
+    $('#student h1').toggleClass('display-h1')
 
     setTimeout(function(){
 
       $button.toggleClass('submit');
-      $('h1').toggleClass('display-h1');
+      $('#student h1').toggleClass('display-h1');
 
       }, 3000);
     });

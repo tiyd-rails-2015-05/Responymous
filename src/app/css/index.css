@@ -77,7 +77,13 @@ body {
   padding-bottom: 3ex;
   line-height: 3ex;
 }
-#student h1 {
+.display-h1 {
+  display: block;
+  position: absolute;
+  font-size: 5em;
+  margin-top: -8ex;
+}
+#student>h1 {
   display: none;
   color: #fff;
   text-align: center;
@@ -85,10 +91,4 @@ body {
 }
 .submit{
   opacity: 0.3
-}
-.display-h1 {
-  display: block;
-  position: absolute;
-  font-size: 5em;
-  margin-top: -8ex;
 }
