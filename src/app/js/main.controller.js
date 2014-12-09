@@ -54,7 +54,11 @@ angular.module('responymous')
         email: authdUser.github.email,
         name: authdUser.github.displayName,
         last_vote: 5,
+<<<<<<< HEAD
         current_class: 'Q42014FEEORL',
+=======
+        current_class: "Q42014FEEORL",
+>>>>>>> e4c85fc06dac3ed7cd01b1bf46bfe7d96a99adc1
         student: true
       });
 
