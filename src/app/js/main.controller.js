@@ -17,6 +17,9 @@ angular.module('responymous')
           cb(updateUser(data));
         });
       },
+      getUser: function(){
+        return auth.$getCurrentUser(data);
+      },
       /**
       * Wrapper for `$firebaseAuth.$authWithOAuthPopup()` that invokes the
       * correct provider code.
@@ -81,9 +84,13 @@ angular.module('responymous')
     this.login = Auth.login;
     this.logout = Auth.logout;
 
+    console.log(Auth.getUser);
+
+
     Auth.onAuth(function(user){
       self.user = user;
-      $location.path('/student');
+      console.log(user);
+      //$location.path('/student');
     });
   })
 ;
