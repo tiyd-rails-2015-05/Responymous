@@ -1,31 +1,38 @@
 angular.module('responymous')
-.controller('ResponseCtrl', function( CONFIG ) {
-  var ref = new Firebase(CONFIG.Firebase.baseUrl);
-  var self = this;
+  .factory('ClassVotes', function(){
 
-  // *** Get these values dynamically ***
-  var classID = "Q42014FEEORL";
+  })
+  .controller('ResponseCtrl', function( Firebase, $timeout, $firebase ) {
+    var self = this;
 
-  var class_VoteTotals = ref.child("classes/"+classID+"/vote_totals");
+    // *** Get these values dynamically ***
+    var classID = "Q42014FEEORL";
 
-  class_VoteTotals.on('child_changed', function(snap_voteChanged) {
-    class_VoteTotals.child("1").once("value", function(snap_1s){
-      class_VoteTotals.child("2").once("value", function(snap_2s){
-        red = snap_1s.val() + snap_2s.val();
+    //$$updated
+
+
+
+    var user = $firebase(Firebase
+      .child('users')
+    ).$asObject();
+
+    var r=0, y=0, g=0;
+    user.$loaded().then(function(){
+      angular.forEach(user, function(value, index){
+        if (value.last_vote <= 2){
+          r = r + 1;
+        }
+        if (value.last_vote > 3){
+          g = g + 1;
+        }
+        if (value.last_vote === 3){
+          y = y + 1;
+        }
       });
+      console.log(r,y,g);
     });
 
-    class_VoteTotals.child("3").once("value", function(snap_3s){
-      yellow = snap_3s.val();
-    });
-
-    class_VoteTotals.child("4").once("value", function(snap_4s){
-      class_VoteTotals.child("5").once("value", function(snap_5s){
-        green = snap_4s.val() + snap_5s.val();
-      });
-    });
-
-    var total = red + yellow + green;
+    /*var total = red + yellow + green;
     var progress = [
       { count: red,
         percent: ((red/total)*100).toFixed(2) +'%' },
@@ -38,7 +45,7 @@ angular.module('responymous')
       $('#red').width(progress[0].percent).children('div').text(progress[0].count);
       $('#yellow').width(progress[1].percent).children('div').text(progress[1].count);
       $('#green').width(progress[2].percent).children('div').text(progress[2].count);
-
+      */
     });
   })
 ;

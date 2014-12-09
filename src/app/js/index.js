@@ -6,17 +6,17 @@ angular.module('responymous', ['ngAnimate', 'ngCookies', 'ngTouch', 'ui.router',
     .state('home', {
       url: '/',
       templateUrl: 'app/partials/main.html',
-      controller: 'MainCtrl'
+      controller: 'MainCtrl as app'
     })
     .state('student', {
       url: '/student',
       templateUrl: 'app/partials/student.html',
-      controller: 'StudentCtrl'
+      controller: 'StudentCtrl as student'
     })
     .state('instructor', {
       url: '/instructor',
       templateUrl: 'app/partials/instructor.html',
-      controller: 'ResponseCtrl'
+      controller: 'InstructorCtrl as response'
     });
 
     $urlRouterProvider.otherwise('/');
