@@ -1,51 +1,37 @@
 angular.module('responymous')
-  .factory('ClassVotes', function(){
-
-  })
-  .controller('ResponseCtrl', function( Firebase, $timeout, $firebase ) {
+  .controller('InstructorCtrl', function( Auth, Firebase, $timeout, $firebase ) {
     var self = this;
+    var userID, classID;
 
-    // *** Get these values dynamically ***
-    var classID = "Q42014FEEORL";
+    Auth.onAuth(function(user){
+      userID = user.$id;
+      classID = user.current_class;
+    });
 
-    //$$updated
-
-
-
-    var user = $firebase(Firebase
-      .child('users')
+    var classUser = $firebase(Firebase 
+      .child('classUsers').child(classID)
     ).$asObject();
 
-    var r=0, y=0, g=0;
-    user.$loaded().then(function(){
-      angular.forEach(user, function(value, index){
-        if (value.last_vote <= 2){
+    classUser.$loaded().then(function(){
+      var r=0, y=0, g=0;
+      angular.forEach(classUser, function(value, index){
+        if (value.current_vote <= 2){
           r = r + 1;
         }
-        if (value.last_vote > 3){
+        if (value.current_vote > 3){
           g = g + 1;
         }
-        if (value.last_vote === 3){
+        if (value.current_vote == 3){
           y = y + 1;
         }
       });
       console.log(r,y,g);
-    });
-
-    /*var total = red + yellow + green;
-    var progress = [
-      { count: red,
-        percent: ((red/total)*100).toFixed(2) +'%' },
-      { count: yellow,
-        percent: ((yellow/total)*100).toFixed(2) +'%' },
-      { count: green,
-        percent: ((green/total)*100).toFixed(2) +'%' }
-     ]
-
-      $('#red').width(progress[0].percent).children('div').text(progress[0].count);
-      $('#yellow').width(progress[1].percent).children('div').text(progress[1].count);
-      $('#green').width(progress[2].percent).children('div').text(progress[2].count);
-      */
+      this.cntRed = r;
+      this.cntYellow = y;
+      this.cntGreen = g;
+      this.wthRed = ((r/r+y+g)*100).toFixed(2);
+      this.wthYellow = ((y/r+y+g)*100).toFixed(2);
+      this.wthGreen = ((g/r+y+g)*100).toFixed(2);
     });
   })
 ;

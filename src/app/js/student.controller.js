@@ -38,6 +38,10 @@ angular.module('responymous')
       user.$save();
     });
 
+    var user2 = $firebase(Firebase
+      .child('users')
+    ).$asObject();
+
     $timeout(function(){
       self.isDisabled=false;
     }, 3000);

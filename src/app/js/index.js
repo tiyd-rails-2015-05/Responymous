@@ -16,7 +16,7 @@ angular.module('responymous', ['ngAnimate', 'ngCookies', 'ngTouch', 'ui.router',
     .state('instructor', {
       url: '/instructor',
       templateUrl: 'app/partials/instructor.html',
-      controller: 'InstructorCtrl as response'
+      controller: 'InstructorCtrl as instructor'
     });
 
     $urlRouterProvider.otherwise('/');

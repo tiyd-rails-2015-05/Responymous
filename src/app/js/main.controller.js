@@ -6,6 +6,7 @@ angular.module('responymous')
   })
   .factory('Auth', function(Firebase, $firebaseAuth, $firebase){
     var auth = $firebaseAuth(Firebase);
+    var currDate = (new Date()).toISOString().slice(0,10).replace(/-/g,"");
 
     return {
       /**
@@ -53,12 +54,22 @@ angular.module('responymous')
         access_token: authdUser.github.accessToken,
         email: authdUser.github.email,
         name: authdUser.github.displayName,
-        last_vote: 5,
         current_class: "Q42014FEEORL",
         student: true
       });
 
       user.$save();
+
+      var classUser = $firebase(Firebase 
+        .child('classUsers').child(user.current_class).child(authdUser.github.id) 
+      ).$asObject();
+
+      classUser.$loaded().then(function(){
+         classUser.current_vote = 5; 
+        classUser.student = true;
+        classUser.joinedOn = currDate;
+        classUser.$save(); 
+      });
 
       return user;
     } // END updateUser
