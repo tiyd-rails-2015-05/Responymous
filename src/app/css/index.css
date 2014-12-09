@@ -16,19 +16,51 @@ body {
   background-color: #39474E;
 }
 
-/* === student UI === */
-h1 {
-  display: none;
-  color: #fff;
-  text-align: center;
-  opacity: 1;
+/* === login UI === */
+#login {
+  width: 30em;
+  margin-top: 5ex;
 }
-h2 {
+#login h1 {
+  color: #fff;
+}
+#login .btn{
+  line-height: 5ex;
+  font-size: 2ex;
+  text-align: left;
+}
+#login img{
+  vertical-align: middle;
+  margin-right: 1.8em;
+  width: 13%;
+}
+#login .btn-danger{
+    font-size: 3ex;
+    text-align: center;
+}
+.container .jumbotron {
+  width: 26.5em;
+  border: 5px solid #A5A2A1;
+  border-radius: 25px;
+  padding: 2ex 1em 6ex 1em;
+  background-color: inherit;
+}
+
+
+/* === student UI === */
+#student{
+  margin-top: 4ex;
+  margin-bottom: 4ex;
+  padding-bottom: 4ex;
+  border: 4px solid #A5A2A1;
+  border-radius: 25px;
+}
+#student h2 {
   color: #ffffff;
   text-align: center;
   padding-bottom: 1ex;
 }
-.btn-group-vertical{
+#student .btn-group-vertical{
   display: block;
   margin-top: 0.5em;
   margin-bottom: 0.5em;
@@ -36,7 +68,7 @@ h2 {
   margin-left: auto;
   width: 90%;
 }
-.btn{
+#student .btn{
   line-height: 7ex;
   text-align: left;
   font-size: 1.2em;
@@ -45,19 +77,20 @@ h2 {
   padding-bottom: 3ex;
   line-height: 3ex;
 }
-.container{
-  margin-top: 4ex;
-  margin-bottom: 4ex;
-  padding-bottom: 4ex;
-  border: 4px solid #A5A2A1;
-  border-radius: 25px;
-}
-.submit{
-  opacity: 0.3
-}
 .display-h1 {
   display: block;
   position: absolute;
   font-size: 5em;
   margin-top: -8ex;
+}
+#student>h1 {
+  /*display: none;*/
+  color: #fff;
+  text-align: center;
+  opacity: 1;
+  margin-top: -9ex;
+  font-size: 9ex;
+}
+.submit{
+  opacity: 0.3
 }
