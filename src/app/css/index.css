@@ -88,6 +88,8 @@ body {
   color: #fff;
   text-align: center;
   opacity: 1;
+  margin-top: -9ex;
+  font-size: 9ex;
 }
 .submit{
   opacity: 0.3
