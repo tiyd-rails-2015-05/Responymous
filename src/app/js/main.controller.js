@@ -6,6 +6,7 @@ angular.module('responymous')
   })
   .factory('Auth', function(Firebase, $firebaseAuth, $firebase){
     var auth = $firebaseAuth(Firebase);
+    var currentUser = {};
 
     return {
       /**
@@ -18,7 +19,7 @@ angular.module('responymous')
         });
       },
       getUser: function(){
-        return auth.$getCurrentUser(data);
+        return currentUser;
       },
       /**
       * Wrapper for `$firebaseAuth.$authWithOAuthPopup()` that invokes the
@@ -65,13 +66,9 @@ angular.module('responymous')
         .child( authdUser.github.id )
         .set('Q42014FEEORL');
 
-      // Testing code for $asObject and $asArray
-      /*var list = $firebase(Firebase
-        .child('users')
-      ).$asObject();
-      console.log(list);*/
-
       user.$save();
+
+      currentUser = user;
 
       return user;
     } // END updateUser
@@ -84,13 +81,11 @@ angular.module('responymous')
     this.login = Auth.login;
     this.logout = Auth.logout;
 
-    console.log(Auth.getUser);
-
-
     Auth.onAuth(function(user){
       self.user = user;
-      console.log(user);
       //$location.path('/student');
     });
+
+    //console.log(Auth.getUser().$id);
   })
 ;
