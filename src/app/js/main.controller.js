@@ -54,11 +54,7 @@ angular.module('responymous')
         email: authdUser.github.email,
         name: authdUser.github.displayName,
         last_vote: 5,
-<<<<<<< HEAD
-        current_class: 'Q42014FEEORL',
-=======
         current_class: "Q42014FEEORL",
->>>>>>> e4c85fc06dac3ed7cd01b1bf46bfe7d96a99adc1
         student: true
       });
 
@@ -78,7 +74,7 @@ angular.module('responymous')
     } // END updateUser
   }) // END factory(Auth)
 
-  .controller('MainCtrl', function(Auth) {
+  .controller('MainCtrl', function(Auth,$location) {
 
     var self = this;
 
@@ -87,6 +83,7 @@ angular.module('responymous')
 
     Auth.onAuth(function(user){
       self.user = user;
+      $location.path('/student');
     });
   })
 ;
