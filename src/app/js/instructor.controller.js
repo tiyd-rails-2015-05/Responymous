@@ -1,3 +1,5 @@
+'use strict';
+
 angular.module('responymous')
   .controller('InstructorCtrl', function( Auth, Firebase, $timeout, $firebase ) {
     var self = this;
@@ -34,10 +36,9 @@ angular.module('responymous')
         self.cntRed = r;
         self.cntYellow = y;
         self.cntGreen = g;
-        total = r+y+g;
-        self.wthRed = ((r/total)*100).toFixed(2);
-        self.wthYellow = ((y/total)*100).toFixed(2);
-        self.wthGreen = ((g/total)*100).toFixed(2);
+        self.wthRed = ((r/(r+y+g))*100).toFixed(2);
+        self.wthYellow = ((y/(r+y+g))*100).toFixed(2);
+        self.wthGreen = ((g/(r+y+g))*100).toFixed(2);
 
       });
     });
