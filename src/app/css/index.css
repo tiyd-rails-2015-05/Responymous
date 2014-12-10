@@ -1,6 +1,9 @@
 body {
   background-color: #39474E;
 }
+.navbar {
+  background-color: inherit;
+}
 
 /* === login UI === */
 #login {
@@ -34,6 +37,16 @@ body {
 
 
 /* === student UI === */
+.navbar .btn-danger {
+  float: right;
+  margin-right: 8px;
+}
+h3{
+  float: left;
+  color: #fff;
+  margin-top: 10px;
+  margin-left: 8px;
+}
 #student{
   margin-top: 4ex;
   margin-bottom: 4ex;
@@ -63,14 +76,8 @@ body {
   padding-bottom: 3ex;
   line-height: 3ex;
 }
-.display-h1 {
-  display: block;
-  position: absolute;
-  font-size: 5em;
-  margin-top: -8ex;
-}
+
 #student>h1 {
-  /*display: none;*/
   color: #fff;
   text-align: center;
   opacity: 1;
