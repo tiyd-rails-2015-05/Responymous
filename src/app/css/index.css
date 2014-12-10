@@ -68,13 +68,13 @@ h3{
   width: 90%;
 }
 #student .btn{
-  line-height: 7ex;
   text-align: left;
-  font-size: 1.2em;
   white-space: normal;
+  /*line-height: 7ex;
+  font-size: 1.2em;
   padding-top: 3ex;
   padding-bottom: 3ex;
-  line-height: 3ex;
+  line-height: 3ex;*/
 }
 
 #student>h1 {
