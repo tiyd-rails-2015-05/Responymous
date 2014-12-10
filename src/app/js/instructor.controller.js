@@ -1,44 +1,45 @@
 angular.module('responymous')
-.controller('ResponseCtrl', function( CONFIG ) {
-  var ref = new Firebase(CONFIG.Firebase.baseUrl);
-  var self = this;
+  .controller('InstructorCtrl', function( Auth, Firebase, $timeout, $firebase ) {
+    var self = this;
+    var userID, classID;
+    var r,y,g;
 
-  // *** Get these values dynamically ***
-  var classID = "Q42014FEEORL";
+    Auth.onAuth(function(user){
+      userID = user.$id;
+      classID = user.current_class;
+    });
 
-  var class_VoteTotals = ref.child("classes/"+classID+"/vote_totals");
+    Firebase 
+      .child('classUsers')
+      .on('child_changed', function(snapshot) {
 
-  class_VoteTotals.on('child_changed', function(snap_voteChanged) {
-    class_VoteTotals.child("1").once("value", function(snap_1s){
-      class_VoteTotals.child("2").once("value", function(snap_2s){
-        red = snap_1s.val() + snap_2s.val();
+      var classUser = $firebase(Firebase 
+        .child('classUsers').child(classID)
+      ).$asObject();
+
+      classUser.$loaded().then(function(){
+        r=0;y=0;g=0;
+        angular.forEach(classUser, function(value, index){
+          if (value.current_vote <= 2){
+            r = r + 1;
+          }
+          if (value.current_vote > 3){
+            g = g + 1;
+          }
+          if (value.current_vote == 3){
+            y = y + 1;
+          }
+        });
+
+        self.cntRed = r;
+        self.cntYellow = y;
+        self.cntGreen = g;
+        total = r+y+g;
+        self.wthRed = ((r/total)*100).toFixed(2);
+        self.wthYellow = ((y/total)*100).toFixed(2);
+        self.wthGreen = ((g/total)*100).toFixed(2);
+
       });
-    });
-
-    class_VoteTotals.child("3").once("value", function(snap_3s){
-      yellow = snap_3s.val();
-    });
-
-    class_VoteTotals.child("4").once("value", function(snap_4s){
-      class_VoteTotals.child("5").once("value", function(snap_5s){
-        green = snap_4s.val() + snap_5s.val();
-      });
-    });
-
-    var total = red + yellow + green;
-    var progress = [
-      { count: red,
-        percent: ((red/total)*100).toFixed(2) +'%' },
-      { count: yellow,
-        percent: ((yellow/total)*100).toFixed(2) +'%' },
-      { count: green,
-        percent: ((green/total)*100).toFixed(2) +'%' }
-     ]
-
-      $('#red').width(progress[0].percent).children('div').text(progress[0].count);
-      $('#yellow').width(progress[1].percent).children('div').text(progress[1].count);
-      $('#green').width(progress[2].percent).children('div').text(progress[2].count);
-
     });
   })
 ;
