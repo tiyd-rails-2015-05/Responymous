@@ -17,6 +17,9 @@ angular.module('responymous')
           cb(updateUser(data));
         });
       },
+      getUser: function(){
+        return auth.$getCurrentUser();
+      },
       /**
       * Wrapper for `$firebaseAuth.$authWithOAuthPopup()` that invokes the
       * correct provider code.
@@ -58,27 +61,35 @@ angular.module('responymous')
         student: true
       });
 
+      Firebase.child('userClasses')
+        .child( authdUser.github.id )
+        .set('Q42014FEEORL');
+
+      // Testing code for $asObject and $asArray
+      /*var list = $firebase(Firebase
+        .child('users')
+      ).$asObject();
+      console.log(list);*/
+
       user.$save();
 
       return user;
     } // END updateUser
   }) // END factory(Auth)
 
-  .controller('MainCtrl', function(Auth,$state,$timeout) {
+  .controller('MainCtrl', function(Auth,$location) {
 
     var self = this;
 
     this.login = Auth.login;
     this.logout = Auth.logout;
 
+    console.log(Auth.getUser);
+
+
     Auth.onAuth(function(user){
-        self.user=user;
-
-        $timeout(function(){
-          $state.go('student')
-          },2000)
-
-
+      self.user = user;
+      //$location.path('/student');
     });
   })
 ;
