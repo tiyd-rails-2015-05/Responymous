@@ -10,7 +10,7 @@ angular.module('responymous')
     userID = user.$id;
     classID = user.current_class;
   });
-  
+
   this.isDisabled = false;
 
   this.addVote=function(selection){

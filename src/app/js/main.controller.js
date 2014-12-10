@@ -90,7 +90,11 @@ angular.module('responymous')
     Auth.onAuth(function(user){
       self.user = user;
 
-      if(user.current_class == "Q42014FEEORL"){
+      if(user == null){
+        $state.go('home')
+      }
+
+      else if(user.current_class == "Q42014FEEORL"){
         if(user.student){
           $state.go('student');
         }else{
