@@ -77,19 +77,28 @@ angular.module('responymous')
     } // END updateUser
   }) // END factory(Auth)
 
-  .controller('MainCtrl', function(Auth,$location) {
+  .controller('MainCtrl', function(Auth,$location,$state) {
 
     var self = this;
 
     this.login = Auth.login;
     this.logout = Auth.logout;
 
-    console.log(Auth.getUser);
+    // console.log(Auth.getUser);
 
 
     Auth.onAuth(function(user){
       self.user = user;
-      //$location.path('/student');
+
+      if(user.current_class == "Q42014FEEORL"){
+        if(user.student){
+          $state.go('student');
+        }else{
+          $state.go('instructor')
+        }
+      }
+
+      //$location.path('/student')
     });
   })
 ;
