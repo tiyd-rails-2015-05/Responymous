@@ -1,18 +1,25 @@
 'use strict';
 
 angular.module('responymous')
- .controller('StudentCtrl', function(Auth, Firebase, $timeout, $firebase) {
+ .controller('StudentCtrl', function(Auth, Firebase, $timeout, $firebase, $state) {
 
   var self = this;
-  var userID, classID;
+
+  // self.logout = function(){
+  //   Auth.logout();
+  //   console.log(userID);
+  //   $state.go('home');
+  //
+  // }
 
   Auth.onAuth(function(user){
-    userID = user.$id;
-    classID = user.current_class;
 
     self.isDisabled = false;
 
     self.addVote=function(selection){
+
+      var userID = user.$id;
+      var classID = user.current_class;
 
       this.isDisabled = true;
 

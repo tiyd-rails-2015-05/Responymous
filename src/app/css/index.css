@@ -1,6 +1,9 @@
 body {
   background-color: #39474E;
 }
+.navbar {
+  background-color: inherit;
+}
 
 /* === login UI === */
 #login {
