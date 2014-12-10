@@ -11,10 +11,11 @@ angular.module('responymous')
       classID = user.current_class;
 
       Firebase 
-      .child('classUsers').child(classID)
-      .on('child_changed', function(snapshot) {
+        .child('classUsers').child(classID)
+        .on('value', function(classUsers) {
 
-        var classUser = $firebase(snapshot).$asObject();
+        var classUser = $firebase(classUsers.ref()
+        ).$asObject();
 
         classUser.$loaded().then(function(){
           r=0;y=0;g=0;
@@ -36,7 +37,6 @@ angular.module('responymous')
           self.wthRed = ((r/(r+y+g))*100).toFixed(2);
           self.wthYellow = ((y/(r+y+g))*100).toFixed(2);
           self.wthGreen = ((g/(r+y+g))*100).toFixed(2);
-
         });
       });
     });

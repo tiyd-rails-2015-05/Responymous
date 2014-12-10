@@ -17,9 +17,6 @@ angular.module('responymous')
           cb(updateUser(data));
         });
       },
-      getUser: function(){
-        return auth.$getCurrentUser();
-      },
       /**
       * Wrapper for `$firebaseAuth.$authWithOAuthPopup()` that invokes the
       * correct provider code.
@@ -56,7 +53,6 @@ angular.module('responymous')
         access_token: authdUser.github.accessToken,
         email: authdUser.github.email,
         name: authdUser.github.displayName,
-        last_vote: 5,
         current_class: "Q42014FEEORL",
         student: true
       });
@@ -64,12 +60,6 @@ angular.module('responymous')
       Firebase.child('userClasses')
         .child( authdUser.github.id )
         .set('Q42014FEEORL');
-
-      // Testing code for $asObject and $asArray
-      /*var list = $firebase(Firebase
-        .child('users')
-      ).$asObject();
-      console.log(list);*/
 
       user.$save();
 
@@ -83,9 +73,6 @@ angular.module('responymous')
 
     this.login = Auth.login;
     this.logout = Auth.logout;
-
-    // console.log(Auth.getUser);
-
 
     Auth.onAuth(function(user){
       self.user = user;
@@ -102,7 +89,6 @@ angular.module('responymous')
         }
       }
 
-      //$location.path('/student')
     });
   })
 ;
