@@ -64,7 +64,7 @@ angular.module('responymous')
     } // END updateUser
   }) // END factory(Auth)
 
-  .controller('MainCtrl', function(Auth) {
+  .controller('MainCtrl', function(Auth,$state,$timeout) {
 
     var self = this;
 
@@ -72,7 +72,13 @@ angular.module('responymous')
     this.logout = Auth.logout;
 
     Auth.onAuth(function(user){
-      self.user = user;
+        self.user=user;
+
+        $timeout(function(){
+          $state.go('student')
+          },2000)
+
+
     });
   })
 ;
