@@ -6,7 +6,6 @@ angular.module('responymous')
   })
   .factory('Auth', function(Firebase, $firebaseAuth, $firebase){
     var auth = $firebaseAuth(Firebase);
-    var currDate = (new Date()).toISOString().slice(0,10).replace(/-/g,"");
 
     return {
       /**
@@ -17,6 +16,9 @@ angular.module('responymous')
         auth.$onAuth(function(data){
           cb(updateUser(data));
         });
+      },
+      getUser: function(){
+        return auth.$getCurrentUser();
       },
       /**
       * Wrapper for `$firebaseAuth.$authWithOAuthPopup()` that invokes the
@@ -54,36 +56,40 @@ angular.module('responymous')
         access_token: authdUser.github.accessToken,
         email: authdUser.github.email,
         name: authdUser.github.displayName,
+        last_vote: 5,
         current_class: "Q42014FEEORL",
         student: true
       });
 
-      user.$save();
+      Firebase.child('userClasses')
+        .child( authdUser.github.id )
+        .set('Q42014FEEORL');
 
-      var classUser = $firebase(Firebase 
-        .child('classUsers').child(user.current_class).child(authdUser.github.id) 
+      // Testing code for $asObject and $asArray
+      /*var list = $firebase(Firebase
+        .child('users')
       ).$asObject();
+      console.log(list);*/
 
-      classUser.$loaded().then(function(){
-         classUser.current_vote = 5; 
-        classUser.student = true;
-        classUser.joinedOn = currDate;
-        classUser.$save(); 
-      });
+      user.$save();
 
       return user;
     } // END updateUser
   }) // END factory(Auth)
 
-  .controller('MainCtrl', function(Auth) {
+  .controller('MainCtrl', function(Auth,$location) {
 
     var self = this;
 
     this.login = Auth.login;
     this.logout = Auth.logout;
 
+    console.log(Auth.getUser);
+
+
     Auth.onAuth(function(user){
       self.user = user;
+      //$location.path('/student');
     });
   })
 ;

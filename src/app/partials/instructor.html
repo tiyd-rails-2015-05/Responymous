@@ -1,15 +1,13 @@
-<br/><br/>
-
-<div class="container">
-  <div class="progress">
-    <div id="red" class="progress-bar progress-bar-danger">
-      <div title="danger" class="bar" id="prgwidth" style="width: {{ instructor.wthRed }}%">{{ instructor.cntRed }}</div>
+<div class="container" id="instructor">
+  <div class="progress" >
+    <div class="progress-bar progress-bar-danger" style="width: {{ instructor.wthRed }}%">
+      <div title="danger" class="bar" id="prgwidth">{{ instructor.cntRed }}</div>
     </div>
-    <div id="yellow" class="progress-bar progress-bar-warning">
-      <div title="warning" class="bar" id="prgwidth" style="width: {{ instructor.wthYellow }}%">{{ instructor.cntYellow }}</div>
+    <div class="progress-bar progress-bar-warning" style="width: {{ instructor.wthYellow }}%">
+      <div title="warning" class="bar" id="prgwidth">{{ instructor.cntYellow }}</div>
     </div>
-    <div id="green" class="progress-bar progress-bar-success">
-      <div title="success" class="bar" id="prgwidth" style="width: {{ instructor.wthGreen }}%">{{ instructor.cntGreen }}</div>
+    <div class="progress-bar progress-bar-success" style="width: {{ instructor.wthGreen }}%">
+      <div title="success" class="bar" id="prgwidth">{{ instructor.cntGreen }}</div>
     </div>
   </div>
 </div>
