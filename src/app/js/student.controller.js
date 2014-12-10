@@ -5,13 +5,6 @@ angular.module('responymous')
 
   var self = this;
 
-  // self.logout = function(){
-  //   Auth.logout();
-  //   console.log(userID);
-  //   $state.go('home');
-  //
-  // }
-
   Auth.onAuth(function(user){
 
     self.isDisabled = false;
