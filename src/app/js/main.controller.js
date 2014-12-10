@@ -17,9 +17,6 @@ angular.module('responymous')
           cb(updateUser(data));
         });
       },
-      getUser: function(){
-        return auth.$getCurrentUser();
-      },
       /**
       * Wrapper for `$firebaseAuth.$authWithOAuthPopup()` that invokes the
       * correct provider code.
@@ -56,7 +53,6 @@ angular.module('responymous')
         access_token: authdUser.github.accessToken,
         email: authdUser.github.email,
         name: authdUser.github.displayName,
-        last_vote: 5,
         current_class: "Q42014FEEORL",
         student: true
       });
@@ -65,31 +61,34 @@ angular.module('responymous')
         .child( authdUser.github.id )
         .set('Q42014FEEORL');
 
-      // Testing code for $asObject and $asArray
-      /*var list = $firebase(Firebase
-        .child('users')
-      ).$asObject();
-      console.log(list);*/
-
       user.$save();
 
       return user;
     } // END updateUser
   }) // END factory(Auth)
 
-  .controller('MainCtrl', function(Auth,$location) {
+  .controller('MainCtrl', function(Auth,$location,$state) {
 
     var self = this;
 
     this.login = Auth.login;
     this.logout = Auth.logout;
 
-    console.log(Auth.getUser);
-
-
     Auth.onAuth(function(user){
       self.user = user;
-      //$location.path('/student');
+
+      if(user == null){
+        $state.go('home')
+      }
+
+      else if(user.current_class == "Q42014FEEORL"){
+        if(user.student){
+          $state.go('student');
+        }else{
+          $state.go('instructor')
+        }
+      }
+
     });
   })
 ;
