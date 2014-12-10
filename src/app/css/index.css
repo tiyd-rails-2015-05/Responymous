@@ -14,8 +14,8 @@ body {
   color: #fff;
 }
 #login .btn{
-  line-height: 5ex;
-  font-size: 2ex;
+  /*line-height: 5ex;
+  font-size: 2ex;*/
   text-align: left;
 }
 #login img{
@@ -70,11 +70,8 @@ h3{
 #student .btn{
   text-align: left;
   white-space: normal;
-  /*line-height: 7ex;
-  font-size: 1.2em;
-  padding-top: 3ex;
-  padding-bottom: 3ex;
-  line-height: 3ex;*/
+  margin-bottom: 1.5ex;
+  line-height: 2.5ex;
 }
 
 #student>h1 {
