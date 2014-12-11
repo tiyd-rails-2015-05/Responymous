@@ -12,10 +12,11 @@ body {
 }
 #login h1 {
   color: #fff;
+  text-align: center;
+  margin-bottom: 1.5ex;
 }
 #login .btn{
-  /*line-height: 5ex;
-  font-size: 2ex;*/
+  line-height: 3.5ex;
   text-align: left;
 }
 #login img{
@@ -27,7 +28,7 @@ body {
     font-size: 3ex;
     text-align: center;
 }
-.container .jumbotron {
+#login .col-xs-12 {
   width: 26.5em;
   border: 5px solid #A5A2A1;
   border-radius: 25px;
@@ -71,7 +72,7 @@ h3{
   text-align: left;
   white-space: normal;
   margin-bottom: 1.5ex;
-  line-height: 2.5ex;
+  line-height: 3.5ex;
 }
 
 #student>h1 {
