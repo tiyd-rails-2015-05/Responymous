@@ -64,13 +64,13 @@ gulp.task('html', ['wiredep', 'scripts', 'partials'], function () {
 });
 
 gulp.task('images', function () {
-  return gulp.src('src/assets/images/**/*')
+  return gulp.src('src/app/images/**/*')
     .pipe($.cache($.imagemin({
       optimizationLevel: 3,
       progressive: true,
       interlaced: true
     })))
-    .pipe(gulp.dest('dist/assets/images'))
+    .pipe(gulp.dest('dist/app/images'))
     .pipe($.size());
 });
 
