@@ -7,7 +7,6 @@ body {
 
 /* === login UI === */
 #login {
-  width: 30em;
   margin-top: 5ex;
 }
 #login h1 {
@@ -29,7 +28,6 @@ body {
     text-align: center;
 }
 #login .col-xs-12 {
-  width: 26.5em;
   border: 5px solid #A5A2A1;
   border-radius: 25px;
   padding: 2ex 1em 6ex 1em;
@@ -120,4 +118,11 @@ strong{
   margin-top:4ex;
   margin-bottom:0;
   padding-bottom:0;
+}
+
+
+@media (min-width: 480px){
+  #login{
+    width: 26em;
+  }
 }
