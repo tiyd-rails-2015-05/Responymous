@@ -63,6 +63,19 @@ angular.module('responymous')
 
       user.$save();
 
+      var classUser = $firebase(Firebase
+        .child('classUsers')
+        .child('Q42014FEEORL')
+        .child( authdUser.github.id )
+      ).$asObject();
+
+      angular.extend(classUser, {
+        current_vote: 5,
+        student: true
+      });
+
+      classUser.$save();
+
       return user;
     } // END updateUser
   }) // END factory(Auth)
@@ -77,12 +90,12 @@ angular.module('responymous')
     Auth.onAuth(function(user){
       self.user = user;
 
-      if(user == null){
+      if(self.user == null){
         $state.go('home')
       }
 
-      else if(user.current_class == "Q42014FEEORL"){
-        if(user.student){
+      else if(self.user.current_class == "Q42014FEEORL"){
+        if(self.user.student){
           $state.go('student');
         }else{
           $state.go('instructor')
