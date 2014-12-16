@@ -114,8 +114,14 @@ strong{
   border: 4px solid #A5A2A1;
   border-radius: 25px;
 }
+#instructor h2 {
+  color: #ffffff;
+  text-align: center;
+  padding-bottom: 0;
+  margin-bottom: 0;
+}
 .progress{
-  margin-top:4ex;
+  margin-top:2ex;
   margin-bottom:0;
   padding-bottom:0;
 }
