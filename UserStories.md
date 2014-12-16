@@ -1,6 +1,6 @@
 #### Students
 
-##### I want to freely communicate my level of understanding to the instructor so tht my learning experience and that of the class is made more effective.
+##### I want to freely communicate my level of understanding to the instructor so that my learning experience and that of the class is made more effective.
 
 * As student, I want to login via a social provider so that I can conveniently let the application know my identity.
 
